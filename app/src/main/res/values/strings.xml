@@ -8,4 +8,5 @@
     <string name="lblPrueba2">CÁMARA</string>
     <string name="lblPrueba3">MATES</string>
     <string name="lblPrueba4">INVENTADO</string>
+    <string name="lblWelcome">COMPLETA LOS RETOS</string>
 </resources>
