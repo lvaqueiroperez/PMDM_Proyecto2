@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">PMDM_Proyecto2</string>
+    <string name="btnPrueba1"></string>
+    <string name="btnPrueba2"></string>
+    <string name="btnPrueba3"></string>
+    <string name="btnPrueba4"></string>
+    <string name="lblPrueba1">INTERNET</string>
+    <string name="lblPrueba2">CÁMARA</string>
+    <string name="lblPrueba3">MATES</string>
+    <string name="lblPrueba4">INVENTADO</string>
 </resources>
