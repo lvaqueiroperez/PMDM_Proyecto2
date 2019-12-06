@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_reto_internet.*
+import org.jetbrains.anko.browse
 import org.jetbrains.anko.toast
 
 class RetoInternet : AppCompatActivity() {
@@ -15,13 +16,16 @@ class RetoInternet : AppCompatActivity() {
 
         toast("RETO INTERNET")
 
-        btnOk.setOnClickListener{comprobarRespuesta()}
+        btnOk.setOnClickListener { comprobarRespuesta() }
+
+        //PARA LAS BÚSQUEDAS EN INTERNET:
+        btnBuscar.setOnClickListener { browse("https://www.google.com/search?q=" + txtInputBuscar2.text.toString()) }
     }
 
 
-    fun comprobarRespuesta(){
+    fun comprobarRespuesta() {
 
-        if(txtInputRespuesta2.text.toString() == "2119618"){
+        if (txtInputRespuesta2.text.toString() == "2119618") {
 
             toast("HAS ACERTADO !")
 
@@ -30,13 +34,11 @@ class RetoInternet : AppCompatActivity() {
 
             val data = Intent()
 
-            data.putExtra("resultado",resultado1)
-            setResult(Activity.RESULT_OK,data)
+            data.putExtra("resultado", resultado1)
+            setResult(Activity.RESULT_OK, data)
 
 
-
-
-        }else{
+        } else {
 
             toast("RESPUESTA INCORRECTA")
 
@@ -46,12 +48,13 @@ class RetoInternet : AppCompatActivity() {
 
             val data = Intent()
 
-            data.putExtra("resultado",resultado2)
-            setResult(Activity.RESULT_OK,data)
+            data.putExtra("resultado", resultado2)
+            setResult(Activity.RESULT_OK, data)
 
         }
 
 
-
     }
+
+
 }
