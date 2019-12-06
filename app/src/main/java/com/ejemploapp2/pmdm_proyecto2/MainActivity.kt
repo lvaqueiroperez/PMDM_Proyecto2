@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity() {
 
         toast("BIENVENIDO :D")
 
-
     }
 
     fun accesoRetoInternet() {
