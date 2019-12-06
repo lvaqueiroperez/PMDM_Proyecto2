@@ -1,6 +1,8 @@
 package com.ejemploapp2.pmdm_proyecto2
 
+import android.app.Activity
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
@@ -19,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        btnPrueba1.setOnClickListener{accesoRetoInternet()}
+        btnPrueba1.setOnClickListener { accesoRetoInternet() }
 
         toast("BIENVENIDO :D")
 
@@ -30,6 +32,35 @@ class MainActivity : AppCompatActivity() {
         val miIntent = Intent(this, RetoInternet::class.java)
 
         startActivityForResult(miIntent, INTERNET_REQUEST)
+
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == INTERNET_REQUEST) {
+
+            if (resultCode == Activity.RESULT_OK) {
+
+                if (data != null) {
+
+                    val resultado = data.getIntExtra("resultado", 0)
+
+                    if (resultado == 1) {
+
+                        //CAMBIAMOS LA APARIENCIA DEL BOTÓN (probamos primero con la label)
+                        lblPrueba1.setTextColor(Color.GREEN)
+
+                    }
+
+                }
+
+            }
+
+
+        }
+
 
     }
 
