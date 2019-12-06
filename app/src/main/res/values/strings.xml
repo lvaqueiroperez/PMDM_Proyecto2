@@ -9,4 +9,11 @@
     <string name="lblPrueba3">MATES</string>
     <string name="lblPrueba4">INVENTADO</string>
     <string name="lblWelcome">COMPLETA LOS RETOS</string>
+    <string name="lblPreguntaInternet">¿Cuál es la longitud de la Muralla China?</string>
+    <string name="btnOkInternet">OK</string>
+    <string name="textoInputInternet" />
+    <string name="lblInfoInternet">Puedes usar Internet como ayuda!</string>
+    <string name="textInputBuscar" />
+    <string name="btnbuscar">BUSCAR</string>
+
 </resources>
