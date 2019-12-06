@@ -29,11 +29,6 @@ class MainActivity : AppCompatActivity() {
 
         val miIntent = Intent(this, RetoInternet::class.java)
 
-        //variable para saber si se ha completado el reto ( 0 --> no  1 --> sí)
-        val comprueba = 0
-
-        miIntent.putExtra("comprueba", comprueba)
-
         startActivityForResult(miIntent, INTERNET_REQUEST)
 
     }
