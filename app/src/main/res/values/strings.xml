@@ -15,5 +15,7 @@
     <string name="lblInfoInternet">Puedes usar Internet como ayuda!</string>
     <string name="textInputBuscar" />
     <string name="btnbuscar">BUSCAR</string>
+    <string name="txtTituloCamara">¡SACA UNA FOTO!</string>
+    <string name="btnCamara">CÁMARA</string>
 
 </resources>
