@@ -19,13 +19,13 @@ class RetoInternet : AppCompatActivity() {
         btnOk.setOnClickListener { comprobarRespuesta() }
 
         //PARA LAS BÚSQUEDAS EN INTERNET:
-        btnBuscar.setOnClickListener { browse("https://www.google.com/search?q=" + txtInputBuscar2.text.toString()) }
+        btnBuscar.setOnClickListener { browse("https://es.wikipedia.org/wiki/Gran_Muralla_China") }
     }
 
 
     fun comprobarRespuesta() {
 
-        if (txtInputRespuesta2.text.toString() == "2119618") {
+        if (txtInputRespuesta2.text.toString() == "21200") {
 
             toast("HAS ACERTADO !")
 

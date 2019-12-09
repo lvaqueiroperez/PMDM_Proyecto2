@@ -77,6 +77,7 @@ class activity_reto_camara : AppCompatActivity() {
             imageCamara.setImageBitmap(imageBitmap)
 
             //COMPROBAMOS QUE SE HA SUPERADO EL RETO
+            //HACER QUE COMPRUEBE LOS PIXELS DE LA IMAGEN SACADA, QUE CUMPLA CIERTA CONDICION
             if (imageCamara != null) {
 
                 toast("RETO SUPERADO")
