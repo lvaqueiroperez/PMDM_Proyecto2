@@ -14,6 +14,7 @@ import org.jetbrains.anko.toast
 
 //VARIABLES GLOBALES:
 const val INTERNET_REQUEST = 1
+const val CAMARA_REQUEST = 2
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,6 +23,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         btnPrueba1.setOnClickListener { accesoRetoInternet() }
+
+        btnPrueba2.setOnClickListener{accesoRetoCamara()}
 
         toast("BIENVENIDO :D")
 
@@ -32,6 +35,14 @@ class MainActivity : AppCompatActivity() {
         val miIntent = Intent(this, RetoInternet::class.java)
 
         startActivityForResult(miIntent, INTERNET_REQUEST)
+
+    }
+
+    fun accesoRetoCamara(){
+
+        val miIntent = Intent(this,activity_reto_camara::class.java)
+
+        startActivityForResult(miIntent, CAMARA_REQUEST)
 
     }
 
