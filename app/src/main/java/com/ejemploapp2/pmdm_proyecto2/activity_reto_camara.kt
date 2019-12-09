@@ -1,6 +1,7 @@
 package com.ejemploapp2.pmdm_proyecto2
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -24,6 +25,7 @@ class activity_reto_camara : AppCompatActivity() {
         toast("RETO CÁMARA")
 
         btnCamara.setOnClickListener { sacarFoto() }
+
 
     }
 
@@ -73,6 +75,32 @@ class activity_reto_camara : AppCompatActivity() {
 
             val imageBitmap = data!!.extras!!.get("data") as Bitmap
             imageCamara.setImageBitmap(imageBitmap)
+
+            //COMPROBAMOS QUE SE HA SUPERADO EL RETO
+            if (imageCamara != null) {
+
+                toast("RETO SUPERADO")
+
+                val resultado1 = 1
+
+                val data = Intent()
+
+                data.putExtra("resultado", resultado1)
+                setResult(Activity.RESULT_OK, data)
+
+
+            } else {
+                toast("RETO NO SUPERADO")
+
+                val resultado2 = 0
+
+                val data = Intent()
+
+                data.putExtra("resultado", resultado2)
+                setResult(Activity.RESULT_OK, data)
+            }
+
+
         }
     }
 

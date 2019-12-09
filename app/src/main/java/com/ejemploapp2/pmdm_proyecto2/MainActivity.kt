@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
         btnPrueba1.setOnClickListener { accesoRetoInternet() }
 
-        btnPrueba2.setOnClickListener{accesoRetoCamara()}
+        btnPrueba2.setOnClickListener { accesoRetoCamara() }
 
         toast("BIENVENIDO :D")
 
@@ -38,9 +38,9 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun accesoRetoCamara(){
+    fun accesoRetoCamara() {
 
-        val miIntent = Intent(this,activity_reto_camara::class.java)
+        val miIntent = Intent(this, activity_reto_camara::class.java)
 
         startActivityForResult(miIntent, CAMARA_REQUEST)
 
@@ -62,6 +62,26 @@ class MainActivity : AppCompatActivity() {
 
                         //CAMBIAMOS LA APARIENCIA DEL BOTÓN (probamos primero con la label)
                         lblPrueba1.setTextColor(Color.GREEN)
+
+                    }
+
+                }
+
+            }
+
+
+        } else if (requestCode == CAMARA_REQUEST) {
+
+            if (resultCode == Activity.RESULT_OK) {
+
+                if (data != null) {
+
+                    val resultado = data.getIntExtra("resultado", 0)
+
+                    if (resultado == 1) {
+
+                        //CAMBIAMOS LA APARIENCIA DEL BOTÓN (probamos primero con la label)
+                        lblPrueba2.setTextColor(Color.GREEN)
 
                     }
 
