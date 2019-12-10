@@ -17,5 +17,7 @@
     <string name="btnbuscar">BUSCAR</string>
     <string name="txtTituloCamara">¡SACA UNA FOTO!</string>
     <string name="btnCamara">CÁMARA</string>
+    <string name="txtMates1">Cuál es el resultado de...</string>
+    <string name="txtEcuacion">x^2-5x+6  = 0</string>
 
 </resources>
