@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
 
         super.onActivityResult(requestCode, resultCode, data)
-
+        //RETO INTERNET
         if (requestCode == INTERNET_REQUEST) {
 
             if (resultCode == Activity.RESULT_OK) {
@@ -81,7 +81,7 @@ class MainActivity : AppCompatActivity() {
 
             }
 
-
+            //RETO CÁMARA
         } else if (requestCode == CAMARA_REQUEST) {
 
             if (resultCode == Activity.RESULT_OK) {
@@ -94,6 +94,27 @@ class MainActivity : AppCompatActivity() {
 
                         //CAMBIAMOS LA APARIENCIA DEL BOTÓN (probamos primero con la label)
                         lblPrueba2.setTextColor(Color.GREEN)
+
+                    }
+
+                }
+
+            }
+
+
+        }
+        //RETO MATES
+        else if (requestCode == MATES_REQUEST) {
+
+            if (resultCode == Activity.RESULT_OK) {
+
+                if (data != null) {
+
+                    val resultado = data.getIntExtra("resultado", 0)
+
+
+                    if (resultado == 1) {
+                        lblPrueba3.setTextColor(Color.GREEN)
 
                     }
 

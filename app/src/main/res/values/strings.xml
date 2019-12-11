@@ -23,5 +23,6 @@
     <string name="txtSol2">x = 9</string>
     <string name="txtSol3">x = 6 y x= 5</string>
     <string name="txtSol4">x = 31</string>
+    <string name="btnComprobarMates">Comprobar</string>
 
 </resources>
