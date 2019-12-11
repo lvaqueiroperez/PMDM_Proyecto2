@@ -24,5 +24,6 @@
     <string name="txtSol3">x = 6 y x= 5</string>
     <string name="txtSol4">x = 31</string>
     <string name="btnComprobarMates">Comprobar</string>
+    <string name="btnComprobarFoto">Comprobar</string>
 
 </resources>

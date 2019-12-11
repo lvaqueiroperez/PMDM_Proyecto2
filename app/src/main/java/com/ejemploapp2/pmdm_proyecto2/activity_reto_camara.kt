@@ -5,13 +5,23 @@ import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.graphics.Color
+import android.graphics.drawable.BitmapDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import android.widget.ImageView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.toBitmap
 import kotlinx.android.synthetic.main.activity_reto_camara.*
+import kotlinx.android.synthetic.main.activity_reto_internet.*
+import kotlinx.android.synthetic.main.activity_reto_mates.*
 import org.jetbrains.anko.toast
+import androidx.core.app.ComponentActivity.ExtraData
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+
 
 const val MY_PERMISSIONS_REQUEST_CAMERA = 1;
 const val REQUEST_IMAGE_CAPTURE = 2;
@@ -64,6 +74,7 @@ class activity_reto_camara : AppCompatActivity() {
 
     }
 
+
     //PARA RECOGER LA FOTO: (se ha suprimido un error)
     @SuppressLint("MissingSuperCall")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -78,7 +89,17 @@ class activity_reto_camara : AppCompatActivity() {
 
             //COMPROBAMOS QUE SE HA SUPERADO EL RETO
             //HACER QUE COMPRUEBE LOS PIXELS DE LA IMAGEN SACADA, QUE CUMPLA CIERTA CONDICION
-            if (imageCamara != null) {
+
+            val pixel = imageBitmap.getPixel(0, 0)
+
+            //obtenemos canales de color
+            val redValue = Color.red(pixel)
+
+            val blueValue = Color.blue(pixel)
+
+            val greenValue = Color.green(pixel)
+
+            if (pixel == Color.RED) {
 
                 toast("RETO SUPERADO")
 
