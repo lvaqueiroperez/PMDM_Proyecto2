@@ -18,6 +18,10 @@
     <string name="txtTituloCamara">¡SACA UNA FOTO!</string>
     <string name="btnCamara">CÁMARA</string>
     <string name="txtMates1">Cuál es el resultado de...</string>
-    <string name="txtEcuacion">x^2-5x+6  = 0</string>
+    <string name="txtEcuacion">x^2+5x+6  = 0</string>
+    <string name="txtSol1">x=-2 y x=-3</string>
+    <string name="txtSol2">x = 9</string>
+    <string name="txtSol3">x = 6 y x= 5</string>
+    <string name="txtSol4">x = 31</string>
 
 </resources>
