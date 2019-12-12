@@ -10,13 +10,14 @@ import androidx.core.view.isVisible
 import kotlinx.android.synthetic.main.activity_reto_pulsar.*
 import org.jetbrains.anko.toast
 
+//Reto Pulsar, donde el jugador tendrá que pulsar un botón 50 veces en menos de 10 segundos
 class RetoPulsar : AppCompatActivity() {
-
+    //contadores de pulsaciones y de tiempo
     var contP = 0
 
     var inicioTiempo = 0
     var finalTiempo = 0
-
+    // ocultamos el botón de volver y ponemos los listener necesarios
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reto_pulsar)
@@ -29,7 +30,9 @@ class RetoPulsar : AppCompatActivity() {
 
     }
 
-
+    //Función que controla las pulsaciones del botón, siendo la primera la que inicia el tiempo y la
+    //última la que lo para
+    //Se comprueba si el user lo ha conseguido en menos de 10 segundos
     fun pulsaciones() {
 
         if (contP == 0) {
@@ -47,7 +50,7 @@ class RetoPulsar : AppCompatActivity() {
 
 
 
-            if (totalTiempo <= 10000) {
+            if (totalTiempo < 10000) {
 
                 toast("TIEMPO: " + totalTiempo)
                 toast("HAS GANADO !!!")
@@ -85,6 +88,7 @@ class RetoPulsar : AppCompatActivity() {
 
     }
 
+    //Función para configurar el botón de volver
     fun volver() {
 
         finish()

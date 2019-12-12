@@ -31,6 +31,6 @@
     <string name="btnVolver3">Volver</string>
     <string name="btnVolver2">Volver</string>
     <string name="btnVolver1">Volver</string>
-    <string name="txtPuntuacion">Puntuación:</string>
+    <string name="txtPuntuacion">Puntuación: 0</string>
 
 </resources>

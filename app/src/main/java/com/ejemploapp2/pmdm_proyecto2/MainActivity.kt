@@ -5,28 +5,29 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.toast
 
-//CADA ESTRELLA ES UN BOTÓN CON EL QUE SE ACCEDE A UNA ACTIVIDAD NUEVA
-//NECESITAMOS SABER MEDIANTE UNA VARIANBLE SI LA ACTIVIDAD QUE HEMOS VISITADO SE HA COMPLETADO CORRECTAMENTE
-//O NO, SI ES EL CASO PUES EL BOTÓN CAMBIARÁ DE COLOR
+//INFO:
+/*
+App en la que el user tendrá que superar 4 retos, cada vez que se abandone o complete un reto,
+el botón de acceso al mismo se bloqueará y cambiará de color, añadiando o no puntos a la puntuación
+del jugador
+ */
 
-//VARIABLES GLOBALES:
+
+//VARIABLES GLOBALES "requestCode":
 const val INTERNET_REQUEST = 1
 const val CAMARA_REQUEST = 2
 const val MATES_REQUEST = 3
 const val PULSAR_REQUEST = 4
 
-var contBien = 0
-var contMal = 0
-var contTotal = 0
+var puntos = 0
 
 
 class MainActivity : AppCompatActivity() {
 
-
+    //En "onCreate" son creados los listener de cada botón y un mensaje de bienvenida
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -39,13 +40,14 @@ class MainActivity : AppCompatActivity() {
 
         btnPrueba4.setOnClickListener { accesoRetoPulsar() }
 
-        txtPuntuacion.setVisibility(View.INVISIBLE)
+
 
         toast("BIENVENIDO :D")
 
 
     }
 
+    //Función donde se configura el acceso al reto 1 mediante su botón correspondiente
     fun accesoRetoInternet() {
 
         val miIntent = Intent(this, RetoInternet::class.java)
@@ -54,6 +56,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    //Función donde se configura el acceso al reto 2 mediante su botón correspondiente
     fun accesoRetoCamara() {
 
         val miIntent = Intent(this, activity_reto_camara::class.java)
@@ -62,6 +65,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    //Función donde se configura el acceso al reto 3 mediante su botón correspondiente
     fun accesoRetoMates() {
 
         val miIntent = Intent(this, RetoMates::class.java)
@@ -71,6 +75,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    //Función donde se configura el acceso al reto 4 mediante su botón correspondiente
     fun accesoRetoPulsar() {
 
         val miIntent = Intent(this, RetoPulsar::class.java)
@@ -80,9 +85,15 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    //Función donde accederemos a los datos "ActivityResult" de cada Activity mediante su "requestCode"
+    //En cada sección, si el "reto" se ha completado, se cambiará a color verde el botón correspondiente a
+    //ese reto y se bloqueará para que no se pueda acceder a él
+    //Además, la puntuación del usuario se actualizará
+    //NOTA: se ha usado una variable int para indicar si se ha superado (1) o fallado (0) la prueba
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
 
         super.onActivityResult(requestCode, resultCode, data)
+
         //RETO INTERNET
         if (requestCode == INTERNET_REQUEST) {
 
@@ -100,30 +111,17 @@ class MainActivity : AppCompatActivity() {
 
                         //CAMBIAMOS LA APARIENCIA DEL BOTÓN (probamos primero con la label)
                         btnPrueba1.setTextColor(Color.GREEN)
-                        contBien += 1
 
-                        if (contTotal == 4) {
-
-                            resultadoFinal(contBien)
-
-                        }
+                        puntos += 25
+                        txtPuntuacion.setText("Puntuación: " + puntos)
 
                     } else {
 
                         btnPrueba1.setEnabled(false)
-                        contMal += 1
+                        btnPrueba1.setTextColor(Color.RED)
 
-                        contTotal += 1
-
-
-                        if (contTotal == 4) {
-
-                            resultadoFinal(contBien)
-
-                        }
 
                     }
-
 
 
                 }
@@ -146,19 +144,14 @@ class MainActivity : AppCompatActivity() {
 
                         //CAMBIAMOS LA APARIENCIA DEL BOTÓN (probamos primero con la label)
                         btnPrueba2.setTextColor(Color.GREEN)
-                        contBien += 1
+
+                        puntos += 25
+                        txtPuntuacion.setText("Puntuación: " + puntos)
 
                     } else {
 
                         btnPrueba2.setEnabled(false)
-                        contMal += 1
-
-                        contTotal += 1
-                    }
-
-                    if (contTotal == 4) {
-
-                        resultadoFinal(contBien)
+                        btnPrueba2.setTextColor(Color.RED)
 
                     }
 
@@ -169,6 +162,7 @@ class MainActivity : AppCompatActivity() {
 
 
         }
+
         //RETO MATES
         else if (requestCode == MATES_REQUEST) {
 
@@ -183,27 +177,23 @@ class MainActivity : AppCompatActivity() {
                     if (resultado == 1) {
                         btnPrueba3.setTextColor(Color.GREEN)
                         btnPrueba3.setEnabled(false)
-                        contBien += 1
+
+                        puntos += 25
+                        txtPuntuacion.setText("Puntuación: " + puntos)
+
 
                     } else {
 
                         btnPrueba3.setEnabled(false)
-                        contMal += 1
-
-                        contTotal += 1
+                        btnPrueba3.setTextColor(Color.RED)
                     }
 
-                    if (contTotal == 4) {
-
-                        resultadoFinal(contBien)
-
-                    }
 
                 }
 
             }
 
-         //RETO PULSAR
+            //RETO PULSAR
         } else if (requestCode == PULSAR_REQUEST) {
 
 
@@ -216,24 +206,18 @@ class MainActivity : AppCompatActivity() {
 
                     if (resultado == 1) {
                         btnPrueba4.setTextColor(Color.GREEN)
-
-
                         btnPrueba4.setEnabled(false)
-                        contBien += 1
-                        contTotal += 1
+
+                        puntos += 25
+                        txtPuntuacion.setText("Puntuación: " + puntos)
+
 
                     } else {
 
                         btnPrueba4.setEnabled(false)
-                        contMal += 1
-                        contTotal += 1
+                        btnPrueba4.setTextColor(Color.RED)
                     }
 
-                    if (contTotal == 4) {
-
-                        resultadoFinal(contBien)
-
-                    }
 
                 }
 
@@ -245,24 +229,5 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-
-    fun resultadoFinal(puntTotal: Int) {
-
-
-
-        when (puntTotal) {
-
-            4 -> txtPuntuacion.setText("Puntuación: 100")
-
-            3 -> txtPuntuacion.setText("Puntuación: 75")
-
-            2 -> txtPuntuacion.setText("Puntuación: 50")
-
-            1 -> txtPuntuacion.setText("Puntuación: 25 :(")
-
-        }
-
-        txtPuntuacion.setVisibility(View.VISIBLE)
-    }
 
 }

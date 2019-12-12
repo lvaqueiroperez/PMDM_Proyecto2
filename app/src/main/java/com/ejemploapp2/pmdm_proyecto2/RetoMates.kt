@@ -8,8 +8,9 @@ import android.view.View
 import kotlinx.android.synthetic.main.activity_reto_mates.*
 import org.jetbrains.anko.toast
 
+//Activity del reto Mates
 class RetoMates : AppCompatActivity() {
-
+    //Configuramos los listener de cada botón y ocultamos el botón de volver
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reto_mates)
@@ -21,7 +22,7 @@ class RetoMates : AppCompatActivity() {
 
     }
 
-
+    //Función para comprobar que la opción marcada en los checkBox es la correcta
     fun comprobar() {
 
         if ((chk1.isChecked == true) && (chk4.isChecked == false) && (chk2.isChecked == false) && (chk3.isChecked == false)) {
@@ -50,12 +51,15 @@ class RetoMates : AppCompatActivity() {
 
             data.putExtra("resultado", resultado2)
 
+            setResult(Activity.RESULT_OK, data)
+
 
         }
 
 
     }
 
+    //Función para la configuración del botón volver
     fun volver() {
 
         finish()

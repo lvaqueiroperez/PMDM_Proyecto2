@@ -23,12 +23,13 @@ import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.view.View
 
-
+//requestCodes relativos a la configuración del acceso a la cámara del dispositivo y sus permisos
 const val MY_PERMISSIONS_REQUEST_CAMERA = 1;
 const val REQUEST_IMAGE_CAPTURE = 2;
 
+//Activity del reto "Cámara"
 class activity_reto_camara : AppCompatActivity() {
-
+    //Configuramos los listener de cada botón y ocultamos el botón de "volver"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reto_camara)
@@ -44,7 +45,8 @@ class activity_reto_camara : AppCompatActivity() {
 
     }
 
-    //HACE FALTA ESPECIFICAR EN EL MANIFEST !!!
+    //Función que controla el acceso a la cámara, comprobando si existen permisos y preguntando por ellos
+    //en caso negativo
     fun sacarFoto() {
 
         //COMPROBAMOS PERMISOS
@@ -80,7 +82,9 @@ class activity_reto_camara : AppCompatActivity() {
     }
 
 
-    //PARA RECOGER LA FOTO: (se ha suprimido un error)
+    //Función encargada de recoger la foto y, convirtiéndola en un "bitMap" y accediendo a sus píxeles,
+    //de comprobar que la foto contiene el color rojo en su parte céntrica
+
     @SuppressLint("MissingSuperCall")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
@@ -89,15 +93,13 @@ class activity_reto_camara : AppCompatActivity() {
             //(por ej, con un "if" que controle si la variable es null o no (if...else...))
             //SI DE ALGUNA MANERA SABEMOS QUE ESA VARIABLE NO VA A SER NULL NUNCA, PODEMOS USAR EL OPERADOR "!!"
 
+            //obtenemos el bitmap de la imagen
             val imageBitmap = data!!.extras!!.get("data") as Bitmap
             imageCamara.setImageBitmap(imageBitmap)
-
-            //COMPROBAMOS QUE SE HA SUPERADO EL RETO
-            //HACER QUE COMPRUEBE LOS PIXELS DE LA IMAGEN SACADA, QUE CUMPLA CIERTA CONDICION
-
+            //accedemos a los píxeles de la imagen
             val pixel = imageBitmap.getPixel(imageBitmap.width / 2, imageBitmap.height / 2)
 
-            //obtenemos canales de color
+            //obtenemos los canales de color y comparamos los colores de ciertos píxeles
             val redValue = pixel shr 16 and 0xff
 
             val blueValue = pixel and 0xff
@@ -133,6 +135,7 @@ class activity_reto_camara : AppCompatActivity() {
         }
     }
 
+    //función para la congiguración del botón volver
     fun volver() {
 
         finish()
