@@ -90,16 +90,16 @@ class activity_reto_camara : AppCompatActivity() {
             //COMPROBAMOS QUE SE HA SUPERADO EL RETO
             //HACER QUE COMPRUEBE LOS PIXELS DE LA IMAGEN SACADA, QUE CUMPLA CIERTA CONDICION
 
-            val pixel = imageBitmap.getPixel(0, 0)
+            val pixel = imageBitmap.getPixel(imageBitmap.width/2,imageBitmap.height/2)
 
             //obtenemos canales de color
-            val redValue = Color.red(pixel)
+            val redValue = pixel shr 16 and 0xff
 
-            val blueValue = Color.blue(pixel)
+            val blueValue = pixel and 0xff
 
-            val greenValue = Color.green(pixel)
+            val greenValue = pixel shr 8 and 0xff
 
-            if (pixel == Color.RED) {
+            if (redValue >100 && blueValue < 60 && greenValue < 60 ) {
 
                 toast("RETO SUPERADO")
 
