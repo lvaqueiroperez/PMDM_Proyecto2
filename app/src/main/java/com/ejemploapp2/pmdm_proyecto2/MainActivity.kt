@@ -16,6 +16,7 @@ import org.jetbrains.anko.toast
 const val INTERNET_REQUEST = 1
 const val CAMARA_REQUEST = 2
 const val MATES_REQUEST = 3
+const val PULSAR_REQUEST = 4
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,6 +29,8 @@ class MainActivity : AppCompatActivity() {
         btnPrueba2.setOnClickListener { accesoRetoCamara() }
 
         btnPrueba3.setOnClickListener { accesoRetoMates() }
+
+        btnPrueba4.setOnClickListener{accesoRetoPulsar()}
 
         toast("BIENVENIDO :D")
 
@@ -54,6 +57,15 @@ class MainActivity : AppCompatActivity() {
         val miIntent = Intent(this, RetoMates::class.java)
 
         startActivityForResult(miIntent, MATES_REQUEST)
+
+
+    }
+
+    fun accesoRetoPulsar(){
+
+        val miIntent = Intent(this, RetoPulsar::class.java)
+
+        startActivityForResult(miIntent, PULSAR_REQUEST)
 
 
     }

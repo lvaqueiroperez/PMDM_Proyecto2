@@ -40,7 +40,7 @@ class RetoPulsar : AppCompatActivity() {
 
             toast("TIEMPO: " + totalTiempo)
 
-            if (totalTiempo <= 50) {
+            if (totalTiempo <= 10000) {
 
                 toast("HAS GANADO !!!")
 
