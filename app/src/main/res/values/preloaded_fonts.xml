@@ -3,6 +3,7 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/allerta</item>
         <item>@font/amatica_sc</item>
+        <item>@font/anton</item>
         <item>@font/carter_one</item>
     </array>
 </resources>

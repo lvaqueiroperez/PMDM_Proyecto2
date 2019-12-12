@@ -25,5 +25,7 @@
     <string name="txtSol4">x = 31</string>
     <string name="btnComprobarMates">Comprobar</string>
     <string name="btnComprobarFoto">Comprobar</string>
+    <string name="btnDale">DALE</string>
+    <string name="txtPulsa">PULSA 50 VECES</string>
 
 </resources>
