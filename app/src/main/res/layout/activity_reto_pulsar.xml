@@ -15,6 +15,7 @@
         android:layout_marginTop="208dp"
         android:background="#FF0000"
         android:backgroundTint="#B1A06E"
+        android:fontFamily="@font/anton"
         android:foregroundTint="#D335BE08"
         android:text="@string/btnDale"
         android:textColor="#FFFFFF"
@@ -31,6 +32,16 @@
         android:fontFamily="@font/anton"
         android:text="@string/txtPulsa"
         android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnVolver1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="484dp"
+        android:text="@string/btnVolver4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

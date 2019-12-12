@@ -21,6 +21,7 @@ import org.jetbrains.anko.toast
 import androidx.core.app.ComponentActivity.ExtraData
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import android.view.View
 
 
 const val MY_PERMISSIONS_REQUEST_CAMERA = 1;
@@ -32,9 +33,13 @@ class activity_reto_camara : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reto_camara)
 
+        btnVolver2.setVisibility(View.INVISIBLE)
+
+
         toast("RETO CÁMARA")
 
         btnCamara.setOnClickListener { sacarFoto() }
+        btnVolver2.setOnClickListener { volver() }
 
 
     }
@@ -90,7 +95,7 @@ class activity_reto_camara : AppCompatActivity() {
             //COMPROBAMOS QUE SE HA SUPERADO EL RETO
             //HACER QUE COMPRUEBE LOS PIXELS DE LA IMAGEN SACADA, QUE CUMPLA CIERTA CONDICION
 
-            val pixel = imageBitmap.getPixel(imageBitmap.width/2,imageBitmap.height/2)
+            val pixel = imageBitmap.getPixel(imageBitmap.width / 2, imageBitmap.height / 2)
 
             //obtenemos canales de color
             val redValue = pixel shr 16 and 0xff
@@ -99,10 +104,11 @@ class activity_reto_camara : AppCompatActivity() {
 
             val greenValue = pixel shr 8 and 0xff
 
-            if (redValue >100 && blueValue < 60 && greenValue < 60 ) {
+            if (redValue > 100 && blueValue < 60 && greenValue < 60) {
 
                 toast("RETO SUPERADO")
-
+                btnVolver2.setVisibility(View.VISIBLE)
+                btnCamara.setEnabled(false)
                 val resultado1 = 1
 
                 val data = Intent()
@@ -113,7 +119,8 @@ class activity_reto_camara : AppCompatActivity() {
 
             } else {
                 toast("RETO NO SUPERADO")
-
+                btnVolver2.setVisibility(View.VISIBLE)
+                btnCamara.setEnabled(false)
                 val resultado2 = 0
 
                 val data = Intent()
@@ -124,6 +131,12 @@ class activity_reto_camara : AppCompatActivity() {
 
 
         }
+    }
+
+    fun volver() {
+
+        finish()
+
     }
 
 

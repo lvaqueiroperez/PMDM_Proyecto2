@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import kotlinx.android.synthetic.main.activity_reto_mates.*
 import org.jetbrains.anko.toast
 
@@ -13,7 +14,10 @@ class RetoMates : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reto_mates)
 
+        btnVolver3.setVisibility(View.INVISIBLE)
+        btnVolver3.setOnClickListener { volver() }
         btnComprobarMates.setOnClickListener { comprobar() }
+
 
     }
 
@@ -23,6 +27,8 @@ class RetoMates : AppCompatActivity() {
         if ((chk1.isChecked == true) && (chk4.isChecked == false) && (chk2.isChecked == false) && (chk3.isChecked == false)) {
 
             toast("CORRECTO !")
+            btnVolver3.setVisibility(View.VISIBLE)
+            btnComprobarMates.setEnabled(false)
 
             val resultado1 = 1
 
@@ -35,6 +41,8 @@ class RetoMates : AppCompatActivity() {
         } else {
 
             toast("RESPUESTA INCORRECTA")
+            btnComprobarMates.setEnabled(false)
+            btnVolver3.setVisibility(View.VISIBLE)
 
             val resultado2 = 0
 
@@ -45,6 +53,12 @@ class RetoMates : AppCompatActivity() {
 
         }
 
+
+    }
+
+    fun volver() {
+
+        finish()
 
     }
 

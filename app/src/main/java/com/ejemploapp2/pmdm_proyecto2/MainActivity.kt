@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.toast
 
@@ -18,7 +19,13 @@ const val CAMARA_REQUEST = 2
 const val MATES_REQUEST = 3
 const val PULSAR_REQUEST = 4
 
+var contBien = 0
+var contMal = 0
+var contTotal = 0
+
+
 class MainActivity : AppCompatActivity() {
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,9 +37,12 @@ class MainActivity : AppCompatActivity() {
 
         btnPrueba3.setOnClickListener { accesoRetoMates() }
 
-        btnPrueba4.setOnClickListener{accesoRetoPulsar()}
+        btnPrueba4.setOnClickListener { accesoRetoPulsar() }
+
+        txtPuntuacion.setVisibility(View.INVISIBLE)
 
         toast("BIENVENIDO :D")
+
 
     }
 
@@ -61,7 +71,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun accesoRetoPulsar(){
+    fun accesoRetoPulsar() {
 
         val miIntent = Intent(this, RetoPulsar::class.java)
 
@@ -76,6 +86,8 @@ class MainActivity : AppCompatActivity() {
         //RETO INTERNET
         if (requestCode == INTERNET_REQUEST) {
 
+            btnPrueba1.setEnabled(false)
+
             if (resultCode == Activity.RESULT_OK) {
 
                 if (data != null) {
@@ -84,10 +96,35 @@ class MainActivity : AppCompatActivity() {
 
                     if (resultado == 1) {
 
+                        btnPrueba1.setEnabled(false)
+
                         //CAMBIAMOS LA APARIENCIA DEL BOTÓN (probamos primero con la label)
-                        lblPrueba1.setTextColor(Color.GREEN)
+                        btnPrueba1.setTextColor(Color.GREEN)
+                        contBien += 1
+
+                        if (contTotal == 4) {
+
+                            resultadoFinal(contBien)
+
+                        }
+
+                    } else {
+
+                        btnPrueba1.setEnabled(false)
+                        contMal += 1
+
+                        contTotal += 1
+
+
+                        if (contTotal == 4) {
+
+                            resultadoFinal(contBien)
+
+                        }
 
                     }
+
+
 
                 }
 
@@ -96,6 +133,7 @@ class MainActivity : AppCompatActivity() {
             //RETO CÁMARA
         } else if (requestCode == CAMARA_REQUEST) {
 
+
             if (resultCode == Activity.RESULT_OK) {
 
                 if (data != null) {
@@ -104,10 +142,26 @@ class MainActivity : AppCompatActivity() {
 
                     if (resultado == 1) {
 
+                        btnPrueba2.setEnabled(false)
+
                         //CAMBIAMOS LA APARIENCIA DEL BOTÓN (probamos primero con la label)
-                        lblPrueba2.setTextColor(Color.GREEN)
+                        btnPrueba2.setTextColor(Color.GREEN)
+                        contBien += 1
+
+                    } else {
+
+                        btnPrueba2.setEnabled(false)
+                        contMal += 1
+
+                        contTotal += 1
+                    }
+
+                    if (contTotal == 4) {
+
+                        resultadoFinal(contBien)
 
                     }
+
 
                 }
 
@@ -118,6 +172,7 @@ class MainActivity : AppCompatActivity() {
         //RETO MATES
         else if (requestCode == MATES_REQUEST) {
 
+
             if (resultCode == Activity.RESULT_OK) {
 
                 if (data != null) {
@@ -126,7 +181,57 @@ class MainActivity : AppCompatActivity() {
 
 
                     if (resultado == 1) {
-                        lblPrueba3.setTextColor(Color.GREEN)
+                        btnPrueba3.setTextColor(Color.GREEN)
+                        btnPrueba3.setEnabled(false)
+                        contBien += 1
+
+                    } else {
+
+                        btnPrueba3.setEnabled(false)
+                        contMal += 1
+
+                        contTotal += 1
+                    }
+
+                    if (contTotal == 4) {
+
+                        resultadoFinal(contBien)
+
+                    }
+
+                }
+
+            }
+
+         //RETO PULSAR
+        } else if (requestCode == PULSAR_REQUEST) {
+
+
+            if (resultCode == Activity.RESULT_OK) {
+
+                if (data != null) {
+
+                    val resultado = data.getIntExtra("resultado", 0)
+
+
+                    if (resultado == 1) {
+                        btnPrueba4.setTextColor(Color.GREEN)
+
+
+                        btnPrueba4.setEnabled(false)
+                        contBien += 1
+                        contTotal += 1
+
+                    } else {
+
+                        btnPrueba4.setEnabled(false)
+                        contMal += 1
+                        contTotal += 1
+                    }
+
+                    if (contTotal == 4) {
+
+                        resultadoFinal(contBien)
 
                     }
 
@@ -140,5 +245,24 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+
+    fun resultadoFinal(puntTotal: Int) {
+
+
+
+        when (puntTotal) {
+
+            4 -> txtPuntuacion.setText("Puntuación: 100")
+
+            3 -> txtPuntuacion.setText("Puntuación: 75")
+
+            2 -> txtPuntuacion.setText("Puntuación: 50")
+
+            1 -> txtPuntuacion.setText("Puntuación: 25 :(")
+
+        }
+
+        txtPuntuacion.setVisibility(View.VISIBLE)
+    }
 
 }

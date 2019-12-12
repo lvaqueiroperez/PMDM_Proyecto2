@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">PMDM_Proyecto2</string>
-    <string name="btnPrueba1"></string>
-    <string name="btnPrueba2"></string>
-    <string name="btnPrueba3"></string>
-    <string name="btnPrueba4"></string>
+    <string name="btnPrueba1">Internet</string>
+    <string name="btnPrueba2">Cámara</string>
+    <string name="btnPrueba3">Mates</string>
+    <string name="btnPrueba4">Pulsa !</string>
     <string name="lblPrueba1">INTERNET</string>
     <string name="lblPrueba2">CÁMARA</string>
     <string name="lblPrueba3">MATES</string>
@@ -14,8 +14,8 @@
     <string name="textoInputInternet" />
     <string name="lblInfoInternet">Puedes usar Internet como ayuda!</string>
     <string name="textInputBuscar" />
-    <string name="btnbuscar">BUSCAR</string>
-    <string name="txtTituloCamara">¡SACA UNA FOTO!</string>
+    <string name="btnbuscar">AYUDA</string>
+    <string name="txtTituloCamara">¡SACA UNA FOTO CON EL COLOR ROJO!</string>
     <string name="btnCamara">CÁMARA</string>
     <string name="txtMates1">Cuál es el resultado de...</string>
     <string name="txtEcuacion">x^2+5x+6  = 0</string>
@@ -25,7 +25,12 @@
     <string name="txtSol4">x = 31</string>
     <string name="btnComprobarMates">Comprobar</string>
     <string name="btnComprobarFoto">Comprobar</string>
-    <string name="btnDale">DALE</string>
+    <string name="btnDale">GO</string>
     <string name="txtPulsa">PULSA 50 VECES</string>
+    <string name="btnVolver4">Volver</string>
+    <string name="btnVolver3">Volver</string>
+    <string name="btnVolver2">Volver</string>
+    <string name="btnVolver1">Volver</string>
+    <string name="txtPuntuacion">Puntuación:</string>
 
 </resources>

@@ -7,103 +7,6 @@
     android:background="#7982B689"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/lblPrueba4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="280dp"
-        android:layout_marginTop="408dp"
-        android:fontFamily="sans-serif-black"
-        android:text="@string/lblPrueba4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/lblPrueba3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="408dp"
-        android:fontFamily="sans-serif-black"
-        android:text="@string/lblPrueba3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/lblPrueba2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="288dp"
-        android:layout_marginTop="208dp"
-        android:fontFamily="sans-serif-black"
-        android:text="@string/lblPrueba2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnPrueba4"
-        android:layout_width="89dp"
-        android:layout_height="73dp"
-        android:layout_marginStart="272dp"
-        android:layout_marginTop="312dp"
-        android:background="#00FFFFFF"
-        android:foreground="@android:drawable/btn_star_big_off"
-        android:stateListAnimator="@null"
-        android:text="@string/btnPrueba4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnPrueba3"
-        android:layout_width="89dp"
-        android:layout_height="73dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="312dp"
-        android:background="#00FFFFFF"
-        android:fontFamily="sans-serif-smallcaps"
-        android:foreground="@android:drawable/btn_star_big_off"
-        android:stateListAnimator="@null"
-        android:text="@string/btnPrueba3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnPrueba2"
-        android:layout_width="89dp"
-        android:layout_height="73dp"
-        android:layout_marginStart="272dp"
-        android:layout_marginTop="112dp"
-        android:background="#00FFFFFF"
-        android:foreground="@android:drawable/btn_star_big_off"
-        android:stateListAnimator="@null"
-        android:text="@string/btnPrueba2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnPrueba1"
-        android:layout_width="89dp"
-        android:layout_height="73dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="112dp"
-        android:background="#00FFFFFF"
-        android:foreground="@android:drawable/btn_star_big_off"
-        android:stateListAnimator="@null"
-        android:text="@string/btnPrueba1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/lblPrueba1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="208dp"
-        android:fontFamily="sans-serif-black"
-        android:text="@string/lblPrueba1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
         android:layout_width="wrap_content"
@@ -115,10 +18,76 @@
         android:id="@+id/lblWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="64dp"
         android:fontFamily="sans-serif-black"
         android:text="@string/lblWelcome"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnPrueba1"
+        android:layout_width="116dp"
+        android:layout_height="87dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="152dp"
+        android:backgroundTint="#8DD1C8"
+        android:text="@string/btnPrueba1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnPrueba2"
+        android:layout_width="116dp"
+        android:layout_height="87dp"
+        android:layout_marginStart="260dp"
+        android:layout_marginTop="152dp"
+        android:backgroundTint="#8DD1C8"
+        android:text="@string/btnPrueba2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnPrueba3"
+        android:layout_width="116dp"
+        android:layout_height="87dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="336dp"
+        android:backgroundTint="#8DD1C8"
+        android:text="@string/btnPrueba3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnPrueba4"
+        android:layout_width="116dp"
+        android:layout_height="87dp"
+        android:layout_marginStart="260dp"
+        android:layout_marginTop="336dp"
+        android:backgroundTint="#8DD1C8"
+        android:text="@string/btnPrueba4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtPuntuacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="464dp"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/txtPuntuacion"
+        android:textSize="36sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="164dp"
+        tools:layout_editor_absoluteY="525dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

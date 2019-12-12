@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import kotlinx.android.synthetic.main.activity_reto_internet.*
 import org.jetbrains.anko.browse
 import org.jetbrains.anko.toast
@@ -14,6 +15,8 @@ class RetoInternet : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reto_internet)
 
+        btnVolver1.setVisibility(View.INVISIBLE)
+        btnVolver1.setOnClickListener{volver()}
         toast("RETO INTERNET")
 
         btnOk.setOnClickListener { comprobarRespuesta() }
@@ -28,6 +31,8 @@ class RetoInternet : AppCompatActivity() {
         if (txtInputRespuesta2.text.toString() == "21200") {
 
             toast("HAS ACERTADO !")
+            btnVolver1.setVisibility(View.VISIBLE)
+            btnOk.setEnabled(false)
 
             //Si la prueba se ha superado, "data" tendrá el valor de 1
             val resultado1 = 1
@@ -41,6 +46,8 @@ class RetoInternet : AppCompatActivity() {
         } else {
 
             toast("RESPUESTA INCORRECTA")
+            btnVolver1.setVisibility(View.VISIBLE)
+            btnOk.setEnabled(false)
 
             //Si la prueba NO se ha superado, "data" tendrá el valor de 0
 
@@ -53,6 +60,12 @@ class RetoInternet : AppCompatActivity() {
 
         }
 
+
+    }
+
+    fun volver(){
+
+        finish()
 
     }
 
