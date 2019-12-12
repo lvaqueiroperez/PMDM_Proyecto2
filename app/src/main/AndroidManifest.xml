@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RetoMates"></activity>
+        <activity android:name=".RetoPulsar"></activity>
+        <activity android:name=".RetoMates" />
         <activity android:name=".activity_reto_camara" />
         <activity android:name=".RetoInternet" />
         <activity android:name=".MainActivity">
