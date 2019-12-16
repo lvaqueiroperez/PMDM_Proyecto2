@@ -25,12 +25,13 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="116dp"
-        android:layout_marginTop="80dp"
+        android:layout_width="248dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="84dp"
         android:fontFamily="@font/anton"
         android:text="@string/txtPulsa"
+        android:textAlignment="center"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
